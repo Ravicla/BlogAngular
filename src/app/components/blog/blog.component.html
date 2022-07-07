@@ -1,0 +1,30 @@
+<div class="form">
+    <h1 class="datos">Escribe tu blog</h1>
+    
+    <div class="titulo">
+        <label  for="titulo">Titulo</label>
+        <input type="text" id="titulo" [(ngModel)]="titulo"> 
+    </div>
+    <div class="fecha">
+        <label  for="fecha">Fecha</label>
+        <input type="text" id="fecha" [(ngModel)]="fecha"> 
+    </div>
+    <div>
+        <label for="imagen">url de tu imagen</label>
+        <input type="text" id="imagen" [(ngModel)]="imagen"> 
+    </div>
+    <div>
+        <label for="texto">Texto de noticia</label>
+        <input type="text" id="name" [(ngModel)]="texto"> 
+    </div>
+    
+    <button (click)="guardarNocias()">GUARDAR</button>
+</div>    
+<hr>
+<section>
+    <h1>NOTICIAS</h1>
+    <ul [innerHTML]="noticia"></ul>
+</section>
+
+    
+
