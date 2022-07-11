@@ -1,30 +1,27 @@
 <div class="form">
     <h1 class="datos">Escribe tu blog</h1>
-    
     <div class="titulo">
-        <label  for="titulo">Titulo</label>
-        <input type="text" id="titulo" [(ngModel)]="titulo"> 
+        <label  for="titulo">Titulo: </label>
+        <input type="text" placeholder="Mi blog" id="titulo" [(ngModel)]="titulo"> 
     </div>
     <div class="fecha">
-        <label  for="fecha">Fecha</label>
-        <input type="text" id="fecha" [(ngModel)]="fecha"> 
+        <label  for="fecha">Fecha: </label>
+        <input type="date" placeholder="2022/06/06" id="fecha" [(ngModel)]="fecha"> 
     </div>
-    <div>
-        <label for="imagen">url de tu imagen</label>
-        <input type="text" id="imagen" [(ngModel)]="imagen"> 
+    <div class="imagen">
+        <label for="imagen">Imagen: </label>
+        <input type="text" placeholder="Url" id="imagen" [(ngModel)]="imagen"> 
     </div>
-    <div>
-        <label for="texto">Texto de noticia</label>
-        <input type="text" id="name" [(ngModel)]="texto"> 
+    <div class="texto">
+        <label for="texto">Noticia: </label>
+        <br/>
+        <textarea type="text" placeholder="Contenido de mi blog" id="name" [(ngModel)]="texto"></textarea> 
     </div>
-    
-    <button (click)="guardarNocias()">GUARDAR</button>
+    <button (click)="guardarNocias()">Guardar</button>
 </div>    
 <hr>
 <section>
     <h1>NOTICIAS</h1>
-    <ul [innerHTML]="noticia"></ul>
+    <div class="cards" [innerHTML]="noticia">
+    </div>
 </section>
-
-    
-

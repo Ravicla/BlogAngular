@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Blog } from 'src/app/interfaces/blog.interface';
+import { BrowserModule } from "@angular/platform-browser";
 
 
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.css']
+  styleUrls: ['./blog.component.css'],
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class BlogComponent implements OnInit {
 
@@ -41,15 +43,25 @@ export class BlogComponent implements OnInit {
   }
   cargarNoticias(): void {
     this.noticia ="";
-    this.arrBlog.forEach(blog => this.noticia += `<li>${blog.titulo} : ${blog.imagen} : ${blog.texto} : ${blog.fecha}</li>`);
+    
+    this.arrBlog.forEach(blog => this.noticia += 
+      `<div class="card">
+        <div class="container">
+            <img src="${blog.imagen}" alt="${blog.titulo}">
+        </div>
+        <div class="details">
+            <h3>${blog.titulo}</h3>
+            <h2>Fecha: ${blog.fecha}</h2>
+            <p>${blog.texto}</p>
+        </div>
+      </div>`
+    );
   }
 
   guardarNocias () {
     if (this.titulo !== "" && this.imagen !== "" && this.texto !== "" && this.fecha !== "") {
       let position = this.arrBlog.findIndex(blog => blog.titulo === this.titulo); 
       console.log(position)
-
-
       if (position === -1) {
         let newNoticia: Blog = {
           titulo: this.titulo,
@@ -58,7 +70,7 @@ export class BlogComponent implements OnInit {
           fecha: this.fecha,
           id: this.id
         }
-        this.arrBlog.push(newNoticia);
+        this.arrBlog.unshift(newNoticia);
         this.id++;
         this.cargarNoticias()
         this.titulo ="";
@@ -74,5 +86,4 @@ export class BlogComponent implements OnInit {
       alert('los campos no pueden estar vacios')
     } 
   }
-
 }
