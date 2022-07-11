@@ -5,6 +5,7 @@
     padding: 10px 10px 35px;
     border: 1px solid black;
     background-color: #276E90;
+    color: white;
 }
 .datos {
     text-align: center;
@@ -14,7 +15,10 @@
     border-radius: 30px;
     width: 100%;
     padding: auto;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+}
+#titulo, #fecha, #imagen{
+  margin-left: 10px;
 }
 .texto {
   margin:5px 0; 
@@ -28,6 +32,7 @@ textarea{
   border-radius: 5px;
   border: 1px solid black;
   height: 60px;
+  margin-left: 10px;
 }
 input{
   width: 100%;
@@ -38,7 +43,7 @@ label{
   align-content: flex-end;
 }
 .form h1{
-  color: #333333;
+  color: white;
 }
 button{
   border-radius: 5px;
@@ -63,20 +68,20 @@ body{
   font-family: 'Poppins',sans-serif;
 }
 .cards{
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
+  grid-template-columns: repeat(auto-fit,max-width(400px,1fr));
   padding: 20px;
   grid-gap: 40px;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
   justify-content: center;
-  /*align-items: baseline;LINEA Q HACE ESO*/
 }
+
 .card{
   background-color: #276E90;
   border-radius: 20px;
   box-shadow: 0 0 30px rgba(0,0,0,0.18);
-  width: 350px;
+  max-width: 350px;
   height: auto;
 }
 .container{

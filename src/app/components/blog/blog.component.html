@@ -19,9 +19,19 @@
     </div>
     <button (click)="guardarNocias()">Guardar</button>
 </div>    
-<hr>
+
 <section>
     <h1>NOTICIAS</h1>
-    <div class="cards" [innerHTML]="noticia">
+    <div class="cards">
+        <div class="card" *ngFor="let blog of arrBlog">
+            <div class="container">
+                <img src="{{blog.imagen}}" alt="{{blog.titulo}}">
+            </div>
+            <div class="details">
+                <h3>{{blog.titulo}}</h3>
+                <h2>Fecha: {{blog.fecha}}</h2>
+                <p>{{blog.texto}}</p>
+            </div>
+        </div>
     </div>
 </section>
